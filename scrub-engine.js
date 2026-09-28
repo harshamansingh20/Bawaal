@@ -215,7 +215,8 @@ function mountScrollWorld(container, config) {
     s.loading = true;
     // Serve the lighter mobile encode on phones when one was provided.
     const url = (isMobile() && s.clipM) ? s.clipM : s.clip;
-    fetch(url).then(r => r.ok ? r.blob() : Promise.reject(new Error('404')))
+    const si = SEGMENTS.indexOf(s);
+    fetch(url).then(r => r.ok ? readWithProgress(r, si) : Promise.reject(new Error('404')))
       .then(blob => {
         const v = document.createElement('video');
         v.className = 'sw-scene__video';
@@ -227,7 +228,10 @@ function mountScrollWorld(container, config) {
         // painted — on iOS a seeked-but-never-played muted video stays blank, so
         // hiding the still on metadata alone would flash an empty scene.
         v.addEventListener('seeked', () => { s.el.classList.add('has-clip'); }, { once: true });
-        v.addEventListener('loadeddata', () => { try { v.pause(); } catch (e) {} if (userReady) primeVideo(v); });
+        v.addEventListener('loadeddata', () => {
+          try { v.pause(); } catch (e) {} if (userReady) primeVideo(v);
+          emit('sw:clipready', { index: si });
+        });
         s.el.appendChild(v); s.video = v; s.hasClip = true;
       }).catch(() => { s.loading = false; });
   }
@@ -341,6 +345,23 @@ function mountScrollWorld(container, config) {
   window.addEventListener('load', layout);
   layout();
   requestAnimationFrame(raf);
+
+  // Stream the body so a page can show real download progress (`sw:progress` on the
+  // container, detail {index, loaded, total}); falls back to a plain blob() read.
+  function readWithProgress(r, index) {
+    const total = +r.headers.get('content-length') || 0;
+    if (!r.body || !total) return r.blob();
+    const reader = r.body.getReader(), chunks = [];
+    let loaded = 0;
+    const pump = () => reader.read().then(({ done, value }) => {
+      if (done) return new Blob(chunks, { type: 'video/mp4' });
+      chunks.push(value); loaded += value.length;
+      emit('sw:progress', { index, loaded, total });
+      return pump();
+    });
+    return pump();
+  }
+  function emit(name, detail) { container.dispatchEvent(new CustomEvent(name, { detail })); }
 
   // ---- helpers ----
   function el(tag, cls) { const n = document.createElement(tag); if (cls) n.className = cls; return n; }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="is-loading">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -13,8 +13,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.loader { display: none; }</style></noscript>
 </head>
 <body>
+  <!-- Intro loader: holds until fonts, the hero still and the hero clip are in, then the "gates" open -->
+  <div class="loader" role="status" aria-live="polite" aria-label="Loading Bawaal">
+    <div class="loader__door loader__door--l"></div>
+    <div class="loader__door loader__door--r"></div>
+    <div class="loader__inner">
+      <div class="loader__burst" aria-hidden="true"></div>
+      <img class="loader__logo" src="assets/brand/logo-pink.webp" alt="Bawaal Drink Mixers" width="900" height="272" />
+      <div class="loader__bar" aria-hidden="true"><i></i></div>
+      <p class="loader__pct">0%</p>
+      <p class="loader__line">Thoda sabar… Bawaal aa raha hai</p>
+    </div>
+  </div>
   <div id="top"></div>
   <div id="world"></div>
   <div class="petals" aria-hidden="true"></div>
@@ -224,6 +237,35 @@
     });
   </script>
   <script>
+    // Loader: real progress = fonts (10%) + hero still (10%) + hero clip bytes (80%).
+    // Opens the "gates" when done; never shows < 900ms (no flicker) or > 10s (slow nets).
+    (() => {
+      const root = document.documentElement, world = document.getElementById('world');
+      const el = document.querySelector('.loader'), bar = el.querySelector('.loader__bar i'), pct = el.querySelector('.loader__pct');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const t0 = performance.now();
+      let fonts = 0, still = 0, clip = reduce ? 1 : 0, shown = 0, done = false;
+      document.fonts.ready.then(() => { fonts = 1; });
+      const img = new Image(); img.onload = img.onerror = () => { still = 1; }; img.src = 'assets/stills/darbar.webp';
+      world.addEventListener('sw:progress', e => { if (e.detail.index === 0) clip = Math.max(clip, .98 * e.detail.loaded / e.detail.total); });
+      world.addEventListener('sw:clipready', e => { if (e.detail.index === 0) clip = 1; });
+      const finish = () => {
+        if (done) return; done = true;
+        el.classList.add('loader--done'); root.classList.remove('is-loading');
+        setTimeout(() => el.remove(), reduce ? 500 : 1400);
+      };
+      setTimeout(finish, 10000);
+      (function tick() {
+        if (done) return;
+        const target = 10 * fonts + 10 * still + 80 * clip;
+        shown += (target - shown) * .12;
+        if (target - shown < .5) shown = target;
+        bar.style.transform = `scaleX(${shown / 100})`; pct.textContent = Math.round(shown) + '%';
+        if (shown >= 100 && performance.now() - t0 > 900) return void setTimeout(finish, 250);
+        requestAnimationFrame(tick);
+      })();
+    })();
+
     // Ambient petals + fireflies over the flight (pure CSS animation; values spread
     // with the golden ratio so it looks random but never clumps or changes per load).
     (() => {
