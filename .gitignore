@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+.DS_Store
+# generation scratch (raw clips, extracted frames, ids)
+work/
+.impeccable/

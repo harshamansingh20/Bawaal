@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>BAWAAL — Drink Mixers</title>
+  <meta name="description" content="Five bold desi drink mixers. Cocktail ya mocktail — tumhari marzi. Good drinks. Bigger Bawaal." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <meta name="theme-color" content="#E6247A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="top"></div>
+  <div id="world"></div>
+  <div class="petals" aria-hidden="true"></div>
+
+  <main class="after">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Good drinks. Bigger Bawaal.</span><span>Stir • Sip • Shine • Repeat</span><span>Same spirit. More flavour.</span><span>Bold flavour nights. Always Bawaal.</span>
+        <span>Good drinks. Bigger Bawaal.</span><span>Stir • Sip • Shine • Repeat</span><span>Same spirit. More flavour.</span><span>Bold flavour nights. Always Bawaal.</span>
+      </div>
+    </div>
+
+    <!-- 1. Flavour shelf -->
+    <section class="shelf" id="flavours">
+      <header class="head">
+        <span class="eyebrow">Paanch flavour, zero boring</span>
+        <h2><span class="burst" aria-hidden="true"></span>Pick your Bawaal.</h2>
+      </header>
+      <ul class="shelf__row">
+        <li><button class="bottle" data-f="gulabo" type="button">
+          <img src="assets/bottles/gulabo.webp" alt="Gulabo bottle" loading="lazy" />
+          <span class="bottle__name">Gulabo</span><span class="bottle__notes">Rose · Cardamom · Saffron</span></button></li>
+        <li><button class="bottle" data-f="nimbu-mirchi" type="button">
+          <img src="assets/bottles/nimbu-mirchi.webp" alt="Nimbu Mirchi bottle" loading="lazy" />
+          <span class="bottle__name">Nimbu Mirchi</span><span class="bottle__notes">Lemon · Green chilli</span></button></li>
+        <li><button class="bottle" data-f="khatti-kairi" type="button">
+          <img src="assets/bottles/khatti-kairi.webp" alt="Khatti Kairi bottle" loading="lazy" />
+          <span class="bottle__name">Khatti Kairi</span><span class="bottle__notes">Raw mango · Black salt</span></button></li>
+        <li><button class="bottle" data-f="jamun-jhatka" type="button">
+          <img src="assets/bottles/jamun-jhatka.webp" alt="Jamun Jhatka bottle" loading="lazy" />
+          <span class="bottle__name">Jamun Jhatka</span><span class="bottle__notes">Jamun · Monsoon tang</span></button></li>
+        <li><button class="bottle" data-f="kesar-fizz" type="button">
+          <img src="assets/bottles/kesar-fizz.webp" alt="Kesar Fizz bottle" loading="lazy" />
+          <span class="bottle__name">Kesar Fizz</span><span class="bottle__notes">Saffron · Fizz</span></button></li>
+      </ul>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- 2. Two ways -->
+    <section class="ways" id="recipes">
+      <header class="head">
+        <span class="eyebrow">Do tareeke, ek bottle</span>
+        <h2><span class="burst" aria-hidden="true"></span>Cocktail ya mocktail?</h2>
+        <p class="lede">Every bottle swings both ways. Tumhari party, tumhari marzi.</p>
+      </header>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="jharokha" viewBox="0 0 300 360">
+          <path d="M2 358 L2 118 A24 24 0 0 1 30 92 A28 28 0 0 1 64 62 A32 32 0 0 1 106 36 C126 26 142 18 150 2 C158 18 174 26 194 36 A32 32 0 0 1 236 62 A28 28 0 0 1 270 92 A24 24 0 0 1 298 118 L298 358 Z" style="fill:var(--indigo);stroke:var(--gold)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+          <path d="M2 358 L2 118 A24 24 0 0 1 30 92 A28 28 0 0 1 64 62 A32 32 0 0 1 106 36 C126 26 142 18 150 2 C158 18 174 26 194 36 A32 32 0 0 1 236 62 A28 28 0 0 1 270 92 A24 24 0 0 1 298 118 L298 358 Z" transform="translate(150 180) scale(.934 .944) translate(-150 -180)" style="fill:none;stroke:var(--f)" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        </symbol>
+      </svg>
+      <div class="ways__grid">
+        <article class="card" style="--f:#E23A6E">
+          <svg class="card__shape" viewBox="0 0 300 360" preserveAspectRatio="none" aria-hidden="true"><use href="#jharokha"/></svg>
+          <h3>Gulabo</h3>
+          <div class="card__toggle">
+            <input type="radio" name="w-gulabo" id="w-gulabo-c" checked /><label for="w-gulabo-c">Cocktail</label>
+            <input type="radio" name="w-gulabo" id="w-gulabo-m" /><label for="w-gulabo-m">Mocktail</label>
+          </div>
+          <ol class="card__recipe card__recipe--c"><li><b>Gulabo Gin Fizz</b></li><li>45 ml Gulabo</li><li>60 ml gin</li><li>Top with soda, rose petal on top</li></ol>
+          <ol class="card__recipe card__recipe--m"><li><b>Rose Sharbat Spritz</b></li><li>45 ml Gulabo</li><li>Squeeze of lime</li><li>Top with chilled soda</li></ol>
+        </article>
+        <article class="card" style="--f:#C9C21E">
+          <svg class="card__shape" viewBox="0 0 300 360" preserveAspectRatio="none" aria-hidden="true"><use href="#jharokha"/></svg>
+          <h3>Nimbu Mirchi</h3>
+          <div class="card__toggle">
+            <input type="radio" name="w-nimbu" id="w-nimbu-c" checked /><label for="w-nimbu-c">Cocktail</label>
+            <input type="radio" name="w-nimbu" id="w-nimbu-m" /><label for="w-nimbu-m">Mocktail</label>
+          </div>
+          <ol class="card__recipe card__recipe--c"><li><b>Mirchi Margarita</b></li><li>45 ml Nimbu Mirchi</li><li>60 ml tequila</li><li>Shake on ice, chilli-salt rim</li></ol>
+          <ol class="card__recipe card__recipe--m"><li><b>Masala Nimbu Soda</b></li><li>45 ml Nimbu Mirchi</li><li>Handful of mint</li><li>Top with soda</li></ol>
+        </article>
+        <article class="card" style="--f:#6FB24E">
+          <svg class="card__shape" viewBox="0 0 300 360" preserveAspectRatio="none" aria-hidden="true"><use href="#jharokha"/></svg>
+          <h3>Khatti Kairi</h3>
+          <div class="card__toggle">
+            <input type="radio" name="w-kairi" id="w-kairi-c" checked /><label for="w-kairi-c">Cocktail</label>
+            <input type="radio" name="w-kairi" id="w-kairi-m" /><label for="w-kairi-m">Mocktail</label>
+          </div>
+          <ol class="card__recipe card__recipe--c"><li><b>Kairi Mojito</b></li><li>45 ml Khatti Kairi</li><li>60 ml white rum</li><li>Muddled mint, top with soda</li></ol>
+          <ol class="card__recipe card__recipe--m"><li><b>Aam Panna Cooler</b></li><li>45 ml Khatti Kairi</li><li>Pinch of roasted jeera</li><li>Top with chilled water</li></ol>
+        </article>
+        <article class="card" style="--f:#7B4FA8">
+          <svg class="card__shape" viewBox="0 0 300 360" preserveAspectRatio="none" aria-hidden="true"><use href="#jharokha"/></svg>
+          <h3>Jamun Jhatka</h3>
+          <div class="card__toggle">
+            <input type="radio" name="w-jamun" id="w-jamun-c" checked /><label for="w-jamun-c">Cocktail</label>
+            <input type="radio" name="w-jamun" id="w-jamun-m" /><label for="w-jamun-m">Mocktail</label>
+          </div>
+          <ol class="card__recipe card__recipe--c"><li><b>Jamun Vodka Sour</b></li><li>45 ml Jamun Jhatka</li><li>60 ml vodka</li><li>Shake hard with lime, strain</li></ol>
+          <ol class="card__recipe card__recipe--m"><li><b>Kala Khatta Fizz</b></li><li>45 ml Jamun Jhatka</li><li>Pinch of black salt</li><li>Top with soda</li></ol>
+        </article>
+        <article class="card" style="--f:#E0A53C">
+          <svg class="card__shape" viewBox="0 0 300 360" preserveAspectRatio="none" aria-hidden="true"><use href="#jharokha"/></svg>
+          <h3>Kesar Fizz</h3>
+          <div class="card__toggle">
+            <input type="radio" name="w-kesar" id="w-kesar-c" checked /><label for="w-kesar-c">Cocktail</label>
+            <input type="radio" name="w-kesar" id="w-kesar-m" /><label for="w-kesar-m">Mocktail</label>
+          </div>
+          <ol class="card__recipe card__recipe--c"><li><b>Kesar Royale</b></li><li>45 ml Kesar Fizz</li><li>Chilled prosecco</li><li>Serve in a coupe, saffron strand</li></ol>
+          <ol class="card__recipe card__recipe--m"><li><b>Shahi Kesar Tonic</b></li><li>45 ml Kesar Fizz</li><li>Lots of ice</li><li>Top with tonic</li></ol>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- 3. Shake. Pour. Top. -->
+    <section class="steps" id="how">
+      <header class="head">
+        <span class="eyebrow">Itna hi toh karna hai</span>
+        <h2><span class="burst" aria-hidden="true"></span>Shake. Pour. Top.</h2>
+      </header>
+      <ol class="steps__row">
+        <li><span class="steps__n">01</span><h3>Shake</h3><p>Give the bottle a proper jhatka.</p></li>
+        <li><span class="steps__n">02</span><h3>Pour</h3><p>45 ml over ice. That's one glass.</p></li>
+        <li><span class="steps__n">03</span><h3>Top</h3><p>Soda, tonic or your spirit. Done.</p></li>
+      </ol>
+      <p class="steps__foot">One 180 ml bottle = 4 glasses of Bawaal.</p>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- 4. Gift box -->
+    <section class="box" id="shop">
+      <img class="box__img" src="assets/box.webp" alt="The Bawaal gift box, open, with five bottles and a recipe card" loading="lazy" />
+      <div class="box__copy">
+        <span class="eyebrow">The Bawaal Box</span>
+        <h2><span class="burst" aria-hidden="true"></span>Five flavours. Endless possibilities.</h2>
+        <ul class="box__list">
+          <li>5 × 180 ml mixers: Gulabo, Nimbu Mirchi, Khatti Kairi, Jamun Jhatka, Kesar Fizz</li>
+          <li>Recipe cards for every flavour, cocktail and mocktail</li>
+          <li>20 glasses of Bawaal, one very dramatic box</li>
+        </ul>
+        <p class="box__price">₹ — <small>price coming soon</small></p>
+        <a class="btn" href="#shop">Shop the box</a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="divider" aria-hidden="true"></div>
+      <img class="foot__logo" src="assets/brand/logo-white.webp" alt="Bawaal Drink Mixers" width="900" height="272" loading="lazy" />
+      <p class="foot__line">Stir • Sip • Shine • Repeat</p>
+      <nav class="foot__social" aria-label="Social">
+        <a href="#">Instagram</a><a href="#">YouTube</a><a href="#">WhatsApp</a>
+      </nav>
+      <p class="foot__sign">Horn OK Please · Drink responsibly · © Bawaal</p>
+    </footer>
+  </main>
+
+  <script src="scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'BAWAAL', href: '#top', logo: 'assets/brand/logo-pink.webp', logoDark: 'assets/brand/logo-white.webp' },
+      cta: { label: 'Get the Bawaal', href: '#shop' },
+      hint: 'scroll down',
+      route: false,
+      connScroll: 0.9,
+      crossfade: 0.1,
+      sections: [
+        { id: 'darbar', label: 'Darbar', still: 'assets/stills/darbar.webp',
+          clip: 'assets/vid/darbar.mp4', clipMobile: 'assets/vid/darbar-m.mp4',
+          scroll: 1.8, linger: 0.45, accent: '#E6247A',
+          title: 'Thoda Mix.', titleAccent: 'Thoda Bawaal.',
+          body: 'Bold Indian flavours made for cocktails, mocktails, and whatever the evening turns into.' },
+        { id: 'gulabo', label: 'Gulabo', still: 'assets/stills/gulabo.webp',
+          clip: 'assets/vid/gulabo.mp4', clipMobile: 'assets/vid/gulabo-m.mp4',
+          bottle: 'assets/bottles/gulabo.webp', bottleAlt: 'Gulabo bottle',
+          scroll: 1.3, linger: 0.3, accent: '#E23A6E',
+          title: 'Gulabo', subtitle: 'Rose, with a\nlittle drama.',
+          body: 'A floral pour of rose, cardamom and saffron —\nmade for nights that deserve a little extra.' },
+        { id: 'nimbu-mirchi', label: 'Nimbu Mirchi', still: 'assets/stills/nimbu-mirchi.webp',
+          clip: 'assets/vid/nimbu-mirchi.mp4', clipMobile: 'assets/vid/nimbu-mirchi-m.mp4',
+          bottle: 'assets/bottles/nimbu-mirchi.webp', bottleAlt: 'Nimbu Mirchi bottle',
+          scroll: 1.3, linger: 0.3, accent: '#B8B21A',
+          title: 'Nimbu Mirchi', subtitle: 'Sour mood.\nSpicy attitude.',
+          body: 'Zesty lemon with a green-chilli kick\nfor drinks that refuse to be boring.' },
+        { id: 'khatti-kairi', label: 'Khatti Kairi', still: 'assets/stills/khatti-kairi.webp',
+          clip: 'assets/vid/khatti-kairi.mp4', clipMobile: 'assets/vid/khatti-kairi-m.mp4',
+          bottle: 'assets/bottles/khatti-kairi.webp', bottleAlt: 'Khatti Kairi bottle',
+          scroll: 1.3, linger: 0.3, accent: '#5E9E3E',
+          title: 'Khatti Kairi', subtitle: 'Aam wala nostalgia.\nWith a little extra tang.',
+          body: 'Raw mango, black salt, and that unmistakable\nfirst-bite-back kind of kick.' },
+        { id: 'jamun-jhatka', label: 'Jamun Jhatka', still: 'assets/stills/jamun-jhatka.webp',
+          clip: 'assets/vid/jamun-jhatka.mp4', clipMobile: 'assets/vid/jamun-jhatka-m.mp4',
+          bottle: 'assets/bottles/jamun-jhatka.webp', bottleAlt: 'Jamun Jhatka bottle',
+          scroll: 1.3, linger: 0.3, accent: '#7B4FA8',
+          title: 'Jamun Jhatka', subtitle: 'Monsoon mood.\nJamun ka jhatka.',
+          body: 'Sweet, tangy jamun with a bold little kick —\nmade for rainy evenings and long conversations.' },
+        { id: 'kesar-fizz', label: 'Kesar Fizz', still: 'assets/stills/kesar-fizz.webp',
+          clip: 'assets/vid/kesar-fizz.mp4', clipMobile: 'assets/vid/kesar-fizz-m.mp4',
+          bottle: 'assets/bottles/kesar-fizz.webp', bottleAlt: 'Kesar Fizz bottle',
+          scroll: 1.3, linger: 0.3, accent: '#D08A1C',
+          title: 'Kesar Fizz', subtitle: 'Shahi, but make it sparkle.',
+          body: 'Rich saffron with a bright little fizz —\na royal pour with a playful twist.' },
+        { id: 'the-box', label: 'The Box', still: 'assets/stills/the-box.webp',
+          clip: 'assets/vid/the-box.mp4', clipMobile: 'assets/vid/the-box-m.mp4',
+          scroll: 1.8, linger: 0.45, accent: '#4E2378',
+          eyebrow: 'Five flavours. Endless possibilities.', title: 'Start the Bawaal.',
+          body: 'Stir • Sip • Shine • Repeat.',
+          cta: { primary: { label: 'Shop the box', href: '#shop' },
+                 secondary: { label: 'See recipes', href: '#recipes' } } },
+      ],
+      connectors: [1, 2, 3, 4, 5, 6].map(i => `assets/vid/conn${i}.mp4`),
+      connectorsMobile: [1, 2, 3, 4, 5, 6].map(i => `assets/vid/conn${i}-m.mp4`),
+    });
+  </script>
+  <script>
+    // Ambient petals + fireflies over the flight (pure CSS animation; values spread
+    // with the golden ratio so it looks random but never clumps or changes per load).
+    (() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const host = document.querySelector('.petals'), small = matchMedia('(max-width: 860px)').matches;
+      const spread = i => (i * 0.618034) % 1;
+      const add = (cls, css) => { const e = document.createElement('i'); e.className = cls; e.style.cssText = css; host.appendChild(e); };
+      for (let i = 0, n = small ? 10 : 20; i < n; i++) {
+        const r = spread(i + 1), q = spread(i * 3 + 2), dur = 16 + r * 14;
+        add('petal petal--' + (i % 4), `left:${(r * 100).toFixed(1)}%;--dx:${((q - .5) * 30).toFixed(1)}vw;--s:${(.6 + q * .8).toFixed(2)};` +
+          `animation-duration:${dur.toFixed(1)}s,${(3 + q * 3).toFixed(1)}s;animation-delay:${(-q * dur).toFixed(1)}s,${(-r * 4).toFixed(1)}s`);
+      }
+      for (let i = 0, n = small ? 8 : 16; i < n; i++) {
+        const r = spread(i + 7), q = spread(i * 5 + 3);
+        add('firefly', `left:${(4 + r * 92).toFixed(1)}%;top:${(8 + q * 70).toFixed(1)}%;--s:${(.5 + r).toFixed(2)};` +
+          `animation-duration:${(2.6 + q * 3).toFixed(1)}s,${(9 + r * 8).toFixed(1)}s;animation-delay:${(-r * 5).toFixed(1)}s,${(-q * 9).toFixed(1)}s`);
+      }
+    })();
+  </script>
+  <script>
+    // Swap the header to the white logo once the dark (plum) sections sit under it.
+    const after = document.querySelector('.after');
+    const onDark = () => document.body.classList.toggle('on-dark', after.getBoundingClientRect().top < 80);
+    // Petals belong to the hero only: fade them out with the hero copy (gone by ~1.1 screens).
+    const petals = document.querySelector('.petals');
+    const onPetals = () => {
+      const o = Math.max(0, 1 - scrollY / (1.1 * innerHeight));
+      petals.style.opacity = o; petals.style.visibility = o ? 'visible' : 'hidden';
+    };
+    const onScroll = () => { onDark(); onPetals(); };
+    addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll();
+  </script>
+</body>
+</html>
